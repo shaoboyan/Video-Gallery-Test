@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VR demo</title>
+    <script src="js/aframe-v0.2.0-rc1.min.js"></script>
+    <script src="js/aframe-text-component.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="engine" src="resource/engine.dae"></a-asset-item>
+            <img id="game_pic" src="resource/game.jpg" />
+            <img id="photo_pic" src="resource/photo.jpg" />
+            <img id="solar_pic" src="resource/solar_system.jpg">
+        </a-assets>
+
+        <!--camera-->
+        <a-camera position="0 0 -7" id="user">
+            <a-cursor color="cyan" timeout="3000" fuse="true"></a-cursor>
+        </a-camera>
+
+        <a-entity position="0 0 0">
+            <a-collada-model src="#engine" rotation="90 0 0" scale="18 18 18"></a-collada-model>
+        </a-entity>
+
+        <!--Game launcher ui-->
+        <a-entity text="text: Honor" position="0.8 1.5 -10" scale = "0.3 0.3 0.3"></a-entity>
+        <a-box id="game" position="1 1 -10" width="0.5" depth="0.5" height="0.5" src="#game_pic" visible="true">
+            <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+            <script type="text/javascript">
+                function loadUrl(newLocation)
+                {
+                  window.location = newLocation;
+                  return false;
+                }
+                document.querySelector('#game').addEventListener('click', function () {
+                    loadUrl('./gallery/honor/index.html');
+                });
+                document.querySelector('#game').addEventListener('mouseenter', function () {
+                    var des = document.querySelector('#game');
+                    des.setAttribute("scale", "1.2 1.2 1.2");
+                });
+                document.querySelector('#game').addEventListener('mouseleave', function () {
+                    var des = document.querySelector('#game');
+                    des.setAttribute("scale", "1 1 1");
+                });
+            </script>
+        </a-box>
+        <!-- Photo Launcher ui-->
+        <a-entity text="text: Shark" position="-1.3 1.5 -10" scale = "0.3 0.3 0.3"></a-entity>
+        <a-box id="photo" position="-1 1 -10" width="0.5" depth="0.5" height="0.5" src="#photo_pic" visible="true">
+            <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+            <script type="text/javascript">
+                function loadUrl(newLocation)
+                {
+                    window.location = newLocation;
+                    return false;
+                }
+                document.querySelector("#photo").addEventListener('click', function() {
+                    loadUrl("./gallery/shark/index.html");
+                });
+                document.querySelector('#photo').addEventListener('mouseenter', function() {
+                    var des = document.querySelector('#photo');
+                    des.setAttribute("scale", "1.2 1.2 1.2");
+                });
+                document.querySelector("#photo").addEventListener('mouseleave', function() {
+                    var des = document.querySelector('#photo');
+                    des.setAttribute("scale", "1 1 1");
+                });
+            </script>
+        </a-box>
+        <a-entity text="text: Cango" position="-1.3 0 -10" scale = "0.3 0.3 0.3"></a-entity>
+        <a-box id="solar" position="-1 -0.5 -10" width="0.5" depth="0.5" height="0.5" src="#solar_pic" visible="true">
+            <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+            <script type="text/javascript">
+                function loadUrl(newLocation)
+                {
+                    window.location = newLocation;
+                    return false;
+                }
+                document.querySelector("#solar").addEventListener('click', function() {
+                    loadUrl("./gallery/cango/cango.html");
+                });
+                document.querySelector('#solar').addEventListener('mouseenter', function() {
+                    var des = document.querySelector('#solar');
+                    des.setAttribute("scale", "1.2 1.2 1.2");
+                });
+                document.querySelector("#solar").addEventListener('mouseleave', function() {
+                    var des = document.querySelector('#solar');
+                    des.setAttribute("scale", "1 1 1");
+                });
+            </script>
+        </a-box>
+        <a-entity text="text: Stare at box to choose" position="-3 -1.5 -10"></a-entity>
+    </a-scene>
+</body>
+</html>
