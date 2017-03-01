@@ -10,7 +10,7 @@
   <body>
     <a-scene>
       <a-assets>
-        <video id="video" src="./"
+        <video id="video_1" src="./honor.mp4"
                autoplay loop crossorigin></video>
       </a-assets>
 
@@ -18,9 +18,9 @@
           <a-cursor id="cursor" color="yellow"></a-cursor>
       </a-camera>
 
-      <a-videosphere src="#video" rotation="0 180 0"></a-videosphere>
+      <a-videosphere src="#video_1" rotation="0 180 0"></a-videosphere>
 
-      <a-entity video-controls="src:#video"></a-entity>
+      <a-entity video-controls="src:#video_1"></a-entity>
     </a-scene>
   </body>
 </html>
