@@ -5,6 +5,7 @@
     <title>360 Video</title>
     <meta name="description" content="360 Video — A-Frame">
     <script src="../../js/aframe-master.js"></script>
+    <script src="../../js/aframe-video-controls.js"></script>
   </head>
   <body>
     <a-scene>
@@ -13,7 +14,13 @@
                autoplay loop crossorigin></video>
       </a-assets>
 
+      <a-camera>
+          <a-cursor id="cursor" color="yellow"></a-cursor>
+      </a-camera>
+
       <a-videosphere src="#video" rotation="0 180 0"></a-videosphere>
+
+      <a-entity video-controls="src:#video"></a-entity>
     </a-scene>
   </body>
 </html>
